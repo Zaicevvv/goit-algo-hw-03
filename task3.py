@@ -1,13 +1,5 @@
 from re import sub
 
-def normalize_phone(phone_number):
-    pattern = r"\D+"
-    replacement = ""
-    phone_number = sub(pattern, replacement, phone_number)
-    phone_number = '+' + phone_number if phone_number.startswith('38') \
-        else '+38' + phone_number
-    return phone_number
-
 raw_numbers = [
     "067\\t123 4567",
     "(095) 234-5678\\n",
@@ -19,6 +11,14 @@ raw_numbers = [
     "38050-111-22-22   ",
     "38050 111 22 11",
 ]
+
+def normalize_phone(phone_number):
+    pattern = r"\D+"
+    replacement = ""
+    phone_number = sub(pattern, replacement, phone_number)
+    phone_number = '+' + phone_number if phone_number.startswith('38') \
+        else '+38' + phone_number
+    return phone_number
 
 normalized_numbers = [normalize_phone(num) for num in raw_numbers]
 
