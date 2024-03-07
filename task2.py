@@ -8,9 +8,9 @@ def get_numbers_ticket(min, max, quantity):
     elif min < 1 or max > 1000:
         print(f"Values of min:{min} and max:{max} does not match format " \
               "min >= 1 and max <= 1000")
-    elif not min < quantity < max:
+    elif not 0 < quantity < max:
         print(f"Quantity:{quantity} should be in range of " \
-              f"min:{min + 1} and max:{max - 1}")
+              f"min:1 and max:{max - 1}")
     else:
         while len(random_numbers) < quantity:
             random_numbers.add(randint(min, max))
